@@ -1,6 +1,9 @@
 # ignore virtual env files
 flask_env
 
+# ignore pycache from pycharm in the project foldert
+__pycache__
+
 # ignore .idea folder
 .idea
 
