@@ -1,0 +1,6 @@
+# ignore virtual env files
+flask_env
+
+# ignore .idea folder
+.idea
+
