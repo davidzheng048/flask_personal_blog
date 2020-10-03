@@ -11,7 +11,7 @@ There will be something different from last time. This time there won't be a reg
 # Todo list
 1. Build the original flask blog base on Corey Schafer's tutorial chapter after chapter. Then deployer it on...idk,
 maybe AWS? Deploying stuff on cloud server is also something I need to learn in future. Anyway there are 15 chapters all together.
-I will do it a bit faster this time. Maybe finish this in 2 weeks.
+I will do it a bit faster this time. Maybe finish this in 2 weeks. (Done)
 
 2. Make changes based on my own requirement. Such as markdown, category part and hashtag. All together maybe one week?
 
