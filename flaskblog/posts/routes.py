@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import render_template, url_for, flash, redirect, request, abort
 from flaskblog import db
-from flaskblog.models import Post
+from flaskblog.models import Post, Category
 from flaskblog.posts.forms import PostForm
 from flask_login import current_user, login_required
 
@@ -13,9 +13,10 @@ posts = Blueprint('posts', __name__)
 @login_required
 def new_post():
     form = PostForm()
+    form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]
     if form.validate_on_submit():
         flash('Post Created!', 'success')
-        post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        post = Post(title=form.title.data, content=form.content.data, author=current_user, category_id=form.category_id.data)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('main.home'))

@@ -40,7 +40,19 @@ class Post(db.Model):
     title = db.Column(db.String(20), nullable=False)
     date_posted = db.Column(db.DateTime(100), nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text(20),  nullable=False)
+    # rendered_content = db.Column(db.Text(20),  nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    click_num = db.Column(db.Integer, default=0)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+
+    def __repr__(self):
+        return f"User('{self.title}', '{self.date_posted}')"
+
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    posts = db.relationship('Post', backref='category', lazy=True)
 
     def __repr__(self):
         return f"User('{self.title}', '{self.date_posted}')"
