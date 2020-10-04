@@ -4,7 +4,6 @@ from flaskblog import db
 from flaskblog.models import Post, Category
 from flaskblog.posts.forms import PostForm
 from flask_login import current_user, login_required
-from flask_misaka import Misaka
 
 posts = Blueprint('posts', __name__)
 
