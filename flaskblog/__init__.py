@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flaskblog.config import Config
+from flask_misaka import Misaka
 
 
 db = SQLAlchemy()
@@ -35,6 +36,8 @@ def create_app(config_class=Config):
 
     bcrypt.init_app(app)
     login_manager.init_app(app)
+    md = Misaka()
+    md.init_app(app)
 
     # from flaskblog.users.routes import users
     # from flaskblog.posts.routes import posts

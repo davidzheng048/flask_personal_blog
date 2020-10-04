@@ -6,8 +6,11 @@
             <div class="article-metadata">
               <small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
             </div>
-            <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+            <h2><a class="article-title font-weight-bold" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content|markdown|truncate }}
+                <a href="{{ url_for('posts.post', post_id=post.id) }}">Read More</a>
+            </p>
+
           </div>
         </article>
     {% endfor %}
