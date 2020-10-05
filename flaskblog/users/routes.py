@@ -1,15 +1,18 @@
-from flask import render_template, url_for, flash, redirect, request, Blueprint
+from flask import render_template, url_for, flash, redirect, request, Blueprint, abort
 from flaskblog import db, bcrypt
 from flaskblog.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from flaskblog.users.utils import send_reset_email
 from flaskblog.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
+import os
 
 users = Blueprint('users', __name__)
 
 
 @users.route("/register", methods=['GET', 'POST'])
 def register():
+    if not os.environ.get('REGISTER_PERMISSION') == 'TRUE':
+        return abort(404)
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
 

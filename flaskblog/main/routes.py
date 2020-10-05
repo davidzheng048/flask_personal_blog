@@ -19,6 +19,11 @@ def about():
     return render_template('about.html', title='About')
 
 
+@main.route("/future_feature")
+def future_feature():
+    return render_template('future_feature.html', title='待完成的功能')
+
+
 @main.app_context_processor
 def context_processor():
     categories = Category.query.all()
