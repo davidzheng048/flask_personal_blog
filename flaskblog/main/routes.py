@@ -22,7 +22,9 @@ def about():
 @main.app_context_processor
 def context_processor():
     categories = Category.query.all()
+    recent_posts = Post.query.order_by(Post.id.desc()).limit(5).all()
     return {
         'categories': categories,
-        'current_user': current_user
+        'current_user': current_user,
+        'recent_posts': recent_posts
     }
