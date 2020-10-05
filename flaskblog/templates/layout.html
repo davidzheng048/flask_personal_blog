@@ -92,10 +92,10 @@ div::-webkit-scrollbar-thumb:hover {
             {% if current_category %}
                 <a href="{{ url_for('main.home') }}">All Categories</a>
             {% else %}
-                <a href="{{ url_for('main.home') }}" class="active">All Categories</a>
+                <a href="{{ url_for('main.home') }}" class="active">所有类别</a>
             {% endif %}
             {% if current_user.is_authenticated %}
-                <a href="{{ url_for('categories.new_category') }}">+ New Category</a>
+                <a href="{{ url_for('categories.new_category') }}">+ 新类别</a>
             {% endif %}
             {% for category in categories %}
                 {% if current_category and current_category == category %}
