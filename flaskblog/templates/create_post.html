@@ -19,20 +19,6 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.content.label(class="form-control-label") }}
-
-                {% if form.content.errors %}
-                    {{ form.content(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.content.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.content(class="form-control form-control-lg") }}
-                {% endif %}
-            </div>
-            <div class="form-group">
                 {{ form.category_id.label(class="form-control-label") }}
 
                 {% if form.category_id.errors %}
@@ -47,7 +33,21 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.content.label(class="form-control-label") }}
+
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg blog-content") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-secondary") }}
             </div>
         </fieldset>
     </form>
