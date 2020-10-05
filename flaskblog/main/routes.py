@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import render_template, request
-from flaskblog.models import Post
-
+from flaskblog.models import Post, Category
+from flask_login import current_user
 
 main = Blueprint('main', __name__)
 
@@ -17,3 +17,19 @@ def home():
 @main.route("/about")
 def about():
     return render_template('about.html', title='About')
+
+
+@main.route("/future_feature")
+def future_feature():
+    return render_template('future_feature.html', title='待完成的功能')
+
+
+@main.app_context_processor
+def context_processor():
+    categories = Category.query.all()
+    recent_posts = Post.query.order_by(Post.id.desc()).limit(5).all()
+    return {
+        'categories': categories,
+        'current_user': current_user,
+        'recent_posts': recent_posts
+    }

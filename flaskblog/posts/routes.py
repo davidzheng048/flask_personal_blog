@@ -1,10 +1,9 @@
 from flask import Blueprint
 from flask import render_template, url_for, flash, redirect, request, abort
 from flaskblog import db
-from flaskblog.models import Post
+from flaskblog.models import Post, Category
 from flaskblog.posts.forms import PostForm
 from flask_login import current_user, login_required
-
 
 posts = Blueprint('posts', __name__)
 
@@ -13,9 +12,15 @@ posts = Blueprint('posts', __name__)
 @login_required
 def new_post():
     form = PostForm()
+    form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]
     if form.validate_on_submit():
         flash('Post Created!', 'success')
-        post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        post = Post(
+            title=form.title.data,
+            content=form.content.data,
+            author=current_user,
+            category_id=form.category_id.data
+        )
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('main.home'))
@@ -25,7 +30,8 @@ def new_post():
 @posts.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template('post.html', title=post.title, post=post)
+    current_category = Category.query.get_or_404(post.category_id)
+    return render_template('post.html', title=post.title, post=post, current_category=current_category)
 
 
 @posts.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
@@ -35,6 +41,8 @@ def update_post(post_id):
     if post.author != current_user:
         abort(403)
     form = PostForm()
+    form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]
+
     if form.validate_on_submit():
         post.title = form.title.data
         post.content = form.content.data

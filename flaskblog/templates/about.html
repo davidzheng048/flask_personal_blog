@@ -1,4 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>About Page</h1>
+<article class="media content-section">
+    <div class="media-body">
+        <p class="article-content">
+            <h2>关于这个博客</h2>
+            <br><br>
+           大概五月份的时候我开始照着youtube上一个叫
+            <a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g" style="color:DimGrey">Corey Schafer</a>
+            的博主的Flask教程，一步一步搭起了一个带注册,登录,修改密码头像等功能的简易博客，顺便还部署在了PythonAnywhere上，时间一久毫无意外的就放着吃灰了。
+            <br><br>
+
+            最近因为实习结束了的关系，为了找工作也是为了多点点技能树，开始了漫无止境的自学。总之上周突发奇想， 要是有个用来整理笔记的个人博客就好了，
+            检索信息起来也比纸质的方便。一琢磨语言也有框架也有，那就折腾吧<br><br>
+
+            出于熟悉框架的想法，这次还是照着视频从头做了遍。确实有点理解为什么Flask叫做“微”框架。总之在原来的基础上，
+            我加了个文章分类的model和routes，然后在左边做了个对应的sidebar放这些分类。右边原来的sidebar魔改成了现在的样子，放一些最新博客还有
+            联系方式这些东西。
+
+            如果兴趣的话，那个Flask教程的视频链接
+        <a href="https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH" style="color:DimGrey">在这里</a>
+            也可以直接看作者这个项目的<a href="https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog" style="color:DimGrey">Github链接</a>。
+            <br><br>
+            这个博客的部署也是参照的视频，服务器是在Linode上租的，域名则是在Namecheap上找的，加在一起一个月才6刀。嫌部署过程太麻烦也可以直接用
+        <a href="https://www.pythonanywhere.com/" style="color:DimGrey">PythonAnywhere</a>，连域名和服务器的钱都省了。
+            博客页面的样式基本都是用的Bootstrap，有些地方例如sidebar的css则是东抄抄西抄抄。因为这个的关系，这个博客现在不支持手机浏览，
+            可能之后会有修改吧。
+            <br><br>
+        </p>
+    </div>
+</article>
 {% endblock content %}

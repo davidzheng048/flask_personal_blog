@@ -1,10 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
     <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
       <div class="media-body">
         <div class="article-metadata">
-          <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
           <small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
             {% if post.author == current_user %}
                 <div>
@@ -13,8 +11,8 @@
                 </div>
             {% endif %}
         </div>
-        <h2 class="article-title">{{ post.title }}</h2>
-        <p class="article-content">{{ post.content }}</p>
+        <h2 class="article-title font-weight-bold">{{ post.title }}</h2>
+        <p class="article-content">{{ post.content|markdown }}</p>
       </div>
     </article>
   <!-- Modal -->

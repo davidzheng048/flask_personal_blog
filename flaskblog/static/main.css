@@ -1,7 +1,7 @@
 body {
   background: #fafafa;
   color: #333333;
-  margin-top: 5rem;
+  margin-top: 5.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
 
 .article-title {
@@ -77,4 +78,82 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  border: 3px;
+  font-size: 105%;
+  display: block;
+}
+
+.blog-content {
+  width: 100%;
+  height: 500px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 14%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 13px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: grey;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  left: 14%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.article-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.sidebar-right-position {
+    position:fixed;
+    width:336px;
+    height:280px;
+    right:1%;
+    top:24%;
+    margin-left:-168px;
+    margin-top:-140px;
+    }
+
+.content-sidebar {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding-bottom: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+    }
+
 }
