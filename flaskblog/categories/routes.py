@@ -15,7 +15,7 @@ def new_category():
     form = CategoryForm()
     if form.validate_on_submit():
         flash('Category Created!', 'success')
-        category = Category(name=form.name.data)
+        category = Category(name=form.name.data, sequence=form.sequence.data)
         db.session.add(category)
         db.session.commit()
         return redirect(url_for('main.home'))
@@ -39,11 +39,13 @@ def update_category(category_id):
     form = CategoryForm()
     if form.validate_on_submit():
         category.name = form.name.data
+        category.sequence = form.sequence.data
         db.session.commit()
         flash('Category info updated', 'success')
         return redirect(url_for('categories.category', category_id=category.id))
     elif request.method == 'GET':
         form.name.data = category.name
+        form.sequence.data = category.sequence
     return render_template('create_category.html', title='Update Category', form=form, legend='Update Category')
 
 

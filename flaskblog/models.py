@@ -45,6 +45,7 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     posts = db.relationship('Post', backref='category', lazy=True)
+    sequence = db.Column(db.Integer, default=1)
 
     def __repr__(self):
         return self.name

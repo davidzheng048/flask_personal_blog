@@ -28,7 +28,9 @@ def future_feature():
 
 @main.app_context_processor
 def context_processor():
-    categories = Category.query.all()
+    categories = Category.query.order_by(Category.sequence.desc()).all()
+    for i in categories:
+        print(i.name)
     recent_posts = Post.query.order_by(Post.id.desc()).limit(3).all()
     access_count = AccessCount.query.first().count
     return {
