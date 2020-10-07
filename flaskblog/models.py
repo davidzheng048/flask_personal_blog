@@ -30,9 +30,6 @@ class User(db.Model, UserMixin):
             return None
         return User.query.get(user_id)
 
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
-
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -43,9 +40,6 @@ class Post(db.Model):
     click_count = db.Column(db.Integer, default=0)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
-    def __repr__(self):
-        return f"User('{self.title}', '{self.date_posted}')"
-
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,4 +47,9 @@ class Category(db.Model):
     posts = db.relationship('Post', backref='category', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.title}', '{self.date_posted}')"
+        return self.name
+
+
+class AccessCount(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    count = db.Column(db.Integer, default=1)

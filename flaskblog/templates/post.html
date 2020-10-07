@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
     <article class="media content-section">
-      <div class="media-body">
-        <div class="article-metadata">
-          <small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
-            {% if post.author == current_user %}
+      <div class="media-body let-text-stay-inside-div">
+        <h2 class="article-title font-weight-bold">{{ post.title }}</h2>
+        <small class="text-muted">
+                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
+                分类于：{{ categories[post.category_id - 1] }}&nbsp;&nbsp;&nbsp;
+                点击数： {{ post.click_count }}
+              </small><br><br>
+        {% if post.author == current_user %}
                 <div>
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
                     <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
                 </div>
             {% endif %}
-        </div>
-        <h2 class="article-title font-weight-bold">{{ post.title }}</h2>
         <p class="article-content">{{ post.content|markdown }}</p>
       </div>
     </article>

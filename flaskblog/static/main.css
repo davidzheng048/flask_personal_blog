@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: #000000;
   color: #333333;
   margin-top: 5.5rem;
 }
@@ -109,7 +109,6 @@ div.content {
     }
 
 .sidebar-right-position {
-    position:fixed;
     width:336px;
     height:280px;
     right:1%;
@@ -125,5 +124,42 @@ div.content {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
   border-radius: 15px;
     }
+
+.let-text-stay-inside-div{
+    overflow: hidden;
+    }
+
+
+.nav-bar-shadow {
+    box-shadow: 0 1px 2.5px -1.5px black;
+    }
+
+.counter {
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
 
 }
