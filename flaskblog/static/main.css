@@ -82,12 +82,22 @@ a.article-title:hover {
 
 code {
   font-family: Consolas,"courier new";
-  color: crimson;
-  background-color: #f1f1f1;
+  color: #F0FFFF;
+  background-color: #333333;
   padding: 2px;
   border: 3px;
   font-size: 105%;
-  display: block;
+  display: table;
+}
+
+pre code{
+    font-family: Consolas,"courier new";
+    color: #F0FFFF;
+    background-color: #333333;
+    padding: 2px;
+    border: 3px;
+    font-size: 105%;
+    display: block;
 }
 
 .blog-content {

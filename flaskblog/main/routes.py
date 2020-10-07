@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask import render_template, request
 from flaskblog.models import Post, Category, AccessCount
 from flask_login import current_user
@@ -35,5 +35,6 @@ def context_processor():
         'categories': categories,
         'current_user': current_user,
         'recent_posts': recent_posts,
-        'access_count': access_count
+        'access_count': access_count,
+        'site_url': request.base_url
     }
