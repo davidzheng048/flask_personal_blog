@@ -21,9 +21,10 @@
   </div>
 
 <!---->
-<h1 class="mb-3"> {{ category.name }} </h1>
+<h1 class="mb-3">分类：{{ category.name }}</h1>
 {% if is_login %}
-    <small class="font-weight-bold">Post count: {{ posts.total }}</small>
+    <small class="font-weight-bold">Post count: {{ posts.total }}</small><br>
+    <small class="font-weight-bold">Sequence: {{ category.sequence }}</small>
     <div class="media-body">
 
     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('categories.update_category', category_id=category.id) }}">Update</a>
@@ -34,10 +35,12 @@
     {% for post in posts.items %}
         <article class="media content-section">
           <div class="media-body">
-            <div class="article-metadata">
-              <small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
-            </div>
             <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+              <small class="text-muted">
+                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
+                分类于：{{ categories[post.category_id - 1] }}&nbsp;&nbsp;&nbsp;
+                点击数： {{ post.click_count }}
+              </small><br><br>
             <p class="article-content">{{ post.content|markdown|truncate }}
                 <br><br><a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
             </p>

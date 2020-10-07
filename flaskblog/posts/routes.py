@@ -30,8 +30,9 @@ def new_post():
 @posts.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    current_category = Category.query.get_or_404(post.category_id)
-    return render_template('post.html', title=post.title, post=post, current_category=current_category)
+    post.click_count += 1
+    db.session.commit()
+    return render_template('post.html', title=post.title, post=post)
 
 
 @posts.route("/post/<int:post_id>/update", methods=['GET', 'POST'])

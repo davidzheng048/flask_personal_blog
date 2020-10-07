@@ -4,7 +4,11 @@
         <article class="media content-section">
           <div class="media-body">
             <h2><a class="article-title font-weight-bold" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-              <small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
+              <small class="text-muted">
+                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
+                分类于：{{ categories[post.category_id - 1] }}&nbsp;&nbsp;&nbsp;
+                点击数： {{ post.click_count }}
+              </small><br><br>
             <p class="article-content">{{ post.content|markdown|truncate }}
                 <br><br><a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
             </p>
