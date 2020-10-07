@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint
 from flask import render_template, request
 from flaskblog.models import Post, Category, AccessCount
 from flask_login import current_user
@@ -29,8 +29,6 @@ def future_feature():
 @main.app_context_processor
 def context_processor():
     categories = Category.query.order_by(Category.sequence.desc()).all()
-    for i in categories:
-        print(i.name)
     recent_posts = Post.query.order_by(Post.id.desc()).limit(3).all()
     access_count = AccessCount.query.first().count
     return {

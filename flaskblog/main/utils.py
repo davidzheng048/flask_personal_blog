@@ -1,5 +1,6 @@
 from flaskblog import db
 from flaskblog.models import AccessCount
+from flask_login import current_user
 
 
 def update_and_init_access_count():
@@ -9,8 +10,6 @@ def update_and_init_access_count():
         db.session.add(access_count)
         db.session.commit()
 
-    else:
+    if not current_user.is_authenticated:
         access_count.count += 1
         db.session.commit()
-
-    print(access_count.count)
