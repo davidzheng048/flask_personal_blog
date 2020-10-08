@@ -30,8 +30,9 @@ def new_post():
 @posts.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    post.click_count += 1
-    db.session.commit()
+    if not current_user.is_authenticated:
+        post.click_count += 1
+        db.session.commit()
     return render_template('post.html', title=post.title, post=post)
 
 

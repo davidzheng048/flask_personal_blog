@@ -94,7 +94,7 @@ nav::-webkit-scrollbar-thumb:hover {
                         <a href="{{ url_for('categories.new_category') }}">+ 新类别</a>
                     </li>
                 {% endif %}
-                {% for category in categories %}
+                {% for category in categories_sorted_by_sequence %}
                     <li class="nav-bar-shadow">
                         <a href="{{ url_for('categories.category', category_id=category.id) }}">{{ category.name }}</a>
                     </li>

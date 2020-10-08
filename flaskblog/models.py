@@ -50,6 +50,9 @@ class Category(db.Model):
     def __repr__(self):
         return self.name
 
+    def __lt__(self, other):
+        return self.id < other.id
+
 
 class AccessCount(db.Model):
     id = db.Column(db.Integer, primary_key=True)
