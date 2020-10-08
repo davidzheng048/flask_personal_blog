@@ -28,11 +28,13 @@ def future_feature():
 
 @main.app_context_processor
 def context_processor():
-    categories = Category.query.order_by(Category.sequence.desc()).all()
+    categories_sorted_by_sequence = Category.query.order_by(Category.sequence.desc()).all()
+    categories_sorted_by_id = Category.query.order_by(Category.id.asc()).all()
     recent_posts = Post.query.order_by(Post.id.desc()).limit(3).all()
     access_count = AccessCount.query.first().count
     return {
-        'categories': categories,
+        'categories_sorted_by_sequence': categories_sorted_by_sequence,
+        'categories_sorted_by_id': categories_sorted_by_id,
         'current_user': current_user,
         'recent_posts': recent_posts,
         'access_count': access_count,
