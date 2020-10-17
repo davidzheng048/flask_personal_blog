@@ -5,7 +5,7 @@
         <h2 class="article-title font-weight-bold">{{ post.title }}</h2>
         <small class="text-muted">
                 发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
-                分类于：{{ categories_sorted_by_id[post.category_id - 1] }}&nbsp;&nbsp;&nbsp;
+                分类于： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
                 点击数： {{ post.click_count }}
               </small><br><br>
         {% if post.author == current_user %}
