@@ -19,7 +19,7 @@ def new_category():
         db.session.add(category)
         db.session.commit()
         return redirect(url_for('main.home'))
-    return render_template('create_category.html', title='New Category', form=form, legend='New Category')
+    return render_template('categories/create_category.html', title='New Category', form=form, legend='New Category')
 
 
 @categories.route("/category/<int:category_id>")
@@ -28,8 +28,8 @@ def category(category_id):
 
     category = Category.query.get_or_404(category_id)
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.filter_by(category_id=category.id).order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
-    return render_template('category.html', title=category.name, category=category, posts=posts, is_login=is_login)
+    posts = Post.query.filter_by(category_id=category.id).order_by(Post.date_posted.desc()).paginate(page=page, per_page=10)
+    return render_template('categories/category.html', title=category.name, category=category, posts=posts, is_login=is_login)
 
 
 @categories.route("/category/<int:category_id>/update", methods=['GET', 'POST'])
@@ -46,7 +46,7 @@ def update_category(category_id):
     elif request.method == 'GET':
         form.name.data = category.name
         form.sequence.data = category.sequence
-    return render_template('create_category.html', title='Update Category', form=form, legend='Update Category')
+    return render_template('categories/create_category.html', title='Update Category', form=form, legend='Update Category')
 
 
 @categories.route("/category/<int:category_id>/delete", methods=['POST'])

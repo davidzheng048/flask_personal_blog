@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% from "articles.html" import display_articles %}
 {% block content %}
   <!-- Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -31,22 +32,7 @@
     <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
     </div>
 {% endif %}
-
-    {% for post in posts.items %}
-        <article class="media content-section">
-          <div class="media-body">
-            <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-              <small class="text-muted">
-                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
-                分类于： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
-                点击数： {{ post.click_count }}
-              </small><br><br>
-            <p class="article-content">{{ post.content|markdown|truncate }}
-                <br><br><a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
-            </p>
-          </div>
-        </article>
-    {% endfor %}
+    {{ display_articles(posts, category, categories_sorted_by_id, current_user) }}
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
         {% if page_num %}
             {% if posts.page == page_num %}
