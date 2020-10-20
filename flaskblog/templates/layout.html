@@ -5,7 +5,7 @@
     {% if title %}
         <title>{{ title }}</title>
     {% else %}
-         <title>没撒子技术内容的技术博客</title>
+         <title>没撒子技术含量的学习笔记</title>
     {% endif %}
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -53,7 +53,7 @@ nav::-webkit-scrollbar-thumb:hover {
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand mr-4" style="float: left;text-align:left;" href="/">没撒子技术内容的技术博客</a>
+          <a class="navbar-brand mr-4" style="float: left;text-align:left;" href="/">没撒子技术含量的学习笔记</a>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
             </div>
@@ -127,23 +127,26 @@ nav::-webkit-scrollbar-thumb:hover {
         </div>
         <div class="col-sm-3 sidebar-right-position" style="position:fixed;">
           <div class="content-sidebar">
-            <h3 >最近的博客</h3>
+            <h3 >最近的笔记</h3>
               <ul class="list-group">
                 {% for post in recent_posts %}
                   <li class="list-group-item list-group-item-light" style="color:DimGrey;font-weight:normal;">{{ post.date_posted.strftime('%d-%m-%Y') }}<br>
                   <a href="{{ url_for('posts.post', post_id=post.id) }}" style="color:DimGrey;font-weight:bold">{{ post.title }}</a>
                 {% endfor %}
               </ul>
-            <br><br>
-            <div class="row text-center" style="border-top: 0.5px solid #DCDCDC;">
-                <div class="col">
-                    <div class="counter">
-                        <i class="fa fa-desktop fa-2x " style="color:dimgrey"></i>
-                        <h2 class="timer count-title count-number" data-to="{{ access_count }}" data-speed="1500"></h2>
-                        <p class="count-text ">来访人数</p>
+            <br>
+              {% if current_user.is_authenticated  %}
+                  <div class="row text-center" style="border-top: 0.5px solid #DCDCDC;">
+                    <div class="col">
+                        <div class="counter">
+                            <i class="fa fa-desktop fa-2x " style="color:dimgrey"></i>
+                            <h2 class="timer count-title count-number" data-to="{{ access_count }}" data-speed="1500"></h2>
+                            <p class="count-text ">来访人数</p>
+                        </div>
                     </div>
-                </div>
             </div>
+              {% endif %}
+
 
               <div style="border-top: 0.5px solid #DCDCDC; text-align: center;">
                   <a href="https://www.facebook.com/zhen.zheng.5876/"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
