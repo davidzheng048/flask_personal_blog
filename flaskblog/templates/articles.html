@@ -10,8 +10,8 @@
                   点击数： {{ post.click_count }}
                 {% endif %}
               </small><br><br>
-            <p class="article-content">{{ post.content|markdown|truncate }}
-                <br><br><a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
+            <p class="article-content">{{ post.content|truncate|markdown }}
+                <a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
             </p>
           </div>
         </article>
