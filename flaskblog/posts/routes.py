@@ -48,6 +48,7 @@ def update_post(post_id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.content = form.content.data
+        post.category_id = form.category_id.data
         db.session.commit()
         flash('Post updated', 'success')
         return redirect(url_for('posts.post', post_id=post.id))
