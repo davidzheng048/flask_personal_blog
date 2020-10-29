@@ -36,7 +36,7 @@ def create_app(config_class=Config):
 
     bcrypt.init_app(app)
     login_manager.init_app(app)
-    md = Misaka()
+    md = Misaka(footnotes=True, tables=True)
     md.init_app(app)
 
     return app
