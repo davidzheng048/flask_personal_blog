@@ -171,4 +171,13 @@ div.content {
     display: table;
     color: #4ad1e5;
 }
+
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
 }
