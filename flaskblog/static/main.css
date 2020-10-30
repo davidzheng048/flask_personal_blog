@@ -181,3 +181,8 @@ table {
   width: 50%;
   border-collapse: collapse;
 }
+
+. content-section img {
+    max-width: 100%;
+    max-height: 100%;
+}
