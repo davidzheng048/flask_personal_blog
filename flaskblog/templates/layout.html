@@ -58,7 +58,12 @@ nav::-webkit-scrollbar-thumb:hover {
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container-fluid">
+        <div>
+            <button type="button" id="sidebarCollapse" class="btn btn-secondary">
+                <i class="fas fa-align-left"></i>
+            </button>
+        </div>
+          <div class="container-fluid">
           <a class="navbar-brand mr-4" style="float: left;text-align:left;" href="/">没撒子技术含量的学习笔记</a>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
@@ -70,12 +75,10 @@ nav::-webkit-scrollbar-thumb:hover {
                 <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
                 <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
                 {% endif %}
-<!--                <div class="container-fluid">-->
-                    <button type="button" id="sidebarCollapse" class="btn btn-secondary">
-                        <i class="fas fa-align-left"></i>
-                        <span></span>
-                    </button>
-<!--                </div>-->
+            <form class="form-inline my-2 my-lg-0" action="{{ url_for('main.search') }}">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索笔记</button>
+            </form>
             </div>
           </div>
         </div>
@@ -150,15 +153,20 @@ nav::-webkit-scrollbar-thumb:hover {
                             <p class="count-text ">来访人数</p>
                         </div>
                     </div>
-            </div>
+                </div>
+                <div style="border-top: 0.5px solid #DCDCDC; text-align: center;">
+                    <a href="https://www.facebook.com/zhen.zheng.5876/"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
+                    <a href="https://github.com/BuddyLich"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/github.png') }}"/></a>
+                    <a href="mailto:zhengzhen048@gmail.com"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/gmail.webp') }}"/></a>
+                </div>
+              {% else %}
+                <div style="text-align: center;">
+                    <a href="https://www.facebook.com/zhen.zheng.5876/"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
+                    <a href="https://github.com/BuddyLich"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/github.png') }}"/></a>
+                    <a href="mailto:zhengzhen048@gmail.com"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/gmail.webp') }}"/></a>
+                </div>
               {% endif %}
 
-
-              <div style="border-top: 0.5px solid #DCDCDC; text-align: center;">
-                  <a href="https://www.facebook.com/zhen.zheng.5876/"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
-                  <a href="https://github.com/BuddyLich"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/github.png') }}"/></a>
-                  <a href="mailto:zhengzhen048@gmail.com"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/gmail.webp') }}"/></a>
-                </div>
             </div>
 
             </ul>
