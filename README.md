@@ -1,5 +1,5 @@
-###About the Blog
-
+About the Blog
+------
 This blog is mainly based on Corey Schafer's flask tutorial on Youtube.
 After completing the tutorial, I have made some custom changes to the web app, such as a category model,
 a search bar and a left sidebar.
