@@ -38,7 +38,7 @@ body {
   right: 6%;
   position: fixed;
   width: 300px;
-  height: 500px;
+  height: 515px;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   text-align: center;
@@ -100,7 +100,7 @@ body {
 .my-detail {
   border-top: 0.5px solid #DCDCDC;
   text-align: center;
-  padding: 15px 0 50px 0;
+  padding: 15px 0 15px 0;
 }
 
 table, td, th {
@@ -115,11 +115,16 @@ table {
 
 /* category page */
 .category-list {
-  margin-top: 50px;
+  margin: 50px 0 50px 0;
   width: 65vh;
+  border-top: none;
 }
 
 .category-list li a {
+  color: rgb(115, 115, 115);
+}
+
+.category-list li small {
   color: dimgrey;
 }
 
@@ -127,3 +132,9 @@ table {
   color: black;
   text-decoration: none;
 }
+
+.category-post-click{
+  position: absolute;
+  right: 30px;
+}
+
