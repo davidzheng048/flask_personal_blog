@@ -107,38 +107,32 @@
         {% block content %}{% endblock %}
 
         </div>
-        <div class="col-sm-3 sidebar-right-position" style="position:fixed;">
-          <div class="content-sidebar">
-            <h3 >最近的笔记</h3>
-              <ul class="list-group">
-                {% for post in recent_posts %}
-                  <li class="list-group-item list-group-item-light" style="color:DimGrey;font-weight:normal;">{{ post.date_posted.strftime('%d-%m-%Y') }}<br>
-                  <a href="{{ url_for('posts.post', post_id=post.id) }}" style="color:DimGrey;font-weight:bold">{{ post.title }}</a>
-                {% endfor %}
-              </ul>
-            <br>
-                  <div class="row text-center" style="border-top: 0.5px solid #DCDCDC;">
-                    <div class="col">
-                        <div class="counter">
-                            <i class="fa fa-desktop fa-2x " style="color:dimgrey"></i>
-                            <h2>{{ access_count }}</h2>
-                            <p class="count-text ">来访人数</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="border-top: 0.5px solid #DCDCDC; text-align: center;">
-                    <a href="https://www.facebook.com/zhen.zheng.5876/"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
-                    <a href="https://github.com/BuddyLich"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/github.png') }}"/></a>
-                    <a href="mailto:zhengzhen048@gmail.com"><img width='22%' style="margin:8px" src="{{ url_for('static', filename='contact_icons/gmail.webp') }}"/></a>
-                </div>
-            </div>
-            </ul>
-          </div>
-        </div>
     </div>
+        <div class="sidebar">
+            <h3 >最近的笔记</h3>
+            <ul class="list-group">
+                {% for post in recent_posts %}
+                    <li class="list-group-item">{{ post.date_posted.strftime('%d-%m-%Y') }}<br>
+                    <a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a>
+                {% endfor %}
+            </ul>
+
+            <div>
+                <i class="fa fa-desktop fa-2x sidebar-icon"></i>
+                    <h2>{{ access_count }}</h2>
+                <p class="count-text ">来访人数</p>
+            </div>
+
+            <div class="my-detail">
+                <a href="https://www.facebook.com/zhen.zheng.5876/"><img class="sidebar-icon" src="{{ url_for('static', filename='contact_icons/facebook.png') }}"/></a>
+                <a href="https://github.com/BuddyLich"><img class="sidebar-icon" src="{{ url_for('static', filename='contact_icons/github.png') }}"/></a>
+                <a href="mailto:zhengzhen048@gmail.com"><img class="sidebar-icon" src="{{ url_for('static', filename='contact_icons/gmail.webp') }}"/></a>
+            </div>
+        </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
