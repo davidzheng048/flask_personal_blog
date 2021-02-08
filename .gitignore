@@ -7,3 +7,5 @@ __pycache__
 # ignore .idea folder
 .idea
 
+/**/site.db
+# ignore the sqlite file

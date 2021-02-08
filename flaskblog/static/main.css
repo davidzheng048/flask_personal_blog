@@ -1,175 +1,106 @@
 body {
-  background: #000000;
-  color: #333333;
-  margin-top: 5.5rem;
+  height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+.content {
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 25% 0 25%;
+  max-width: 60%;
 }
 
-.bg-steel {
-  background-color: #2f3c45;
+.card {
+  padding: 30px;
+  margin: 40px 0 40px 0;
 }
 
-.site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+/* sidebar starts here */
+
+.sidebar {
+  top: 10%;
+  right: 6%;
+  position: fixed;
+  overflow: hidden;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #D3D3D3;
+  border-radius: 6px;
+  text-align: center;
+  background-color: white;
+  transition: all 0.3s;
+  z-index: 1;
 }
 
-.site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
-}
-
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
-
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
-}
-
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.profile-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-}
-
-code {
-  font-family: Consolas,"courier new";
-  color: #F0FFFF;
-  background-color: #333333;
-  padding: 2px;
-  border: 3px;
-  font-size: 105%;
-  display: table;
-}
-
-pre code{
-    font-family: Consolas,"courier new";
-    color: #F0FFFF;
-    background-color: #333333;
-    padding: 2px;
-    border: 3px;
-    font-size: 105%;
-    display: block;
-}
-
-.blog-content {
-  width: 100%;
+.sidebar.active {
+  top: 10%;
+  right: 6%;
+  position: fixed;
+  width: 300px;
   height: 500px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  font-size: 16px;
-  resize: none;
+  border: 1px solid #D3D3D3;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  transition: all 0.3s;
+  z-index: 1;
 }
 
-div.content {
-  padding: 1px 16px;
-  height: 1000px;
+.sidebar.active h3{
+  padding: 12px 0 7px 0;
 }
 
-.article-shadow {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-.sidebar-right-position {
-    width:336px;
-    height:280px;
-    right:1%;
-    top:9%;
-    }
-
-.content-sidebar {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  padding-bottom: 20px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-    }
-
-.let-text-stay-inside-div{
-    overflow: hidden;
-    }
-
-
-.nav-bar-shadow {
-    box-shadow: 0 1px 2.5px -1.5px black;
-    }
-
-.counter {
-    padding: 20px 0;
-    border-radius: 5px;
+.sidebar.active li {
+  width: 80%;
+  margin: auto;
+  padding: 7px 10px 7px 10px;
+  text-align: left;
 }
 
-.count-title {
-    font-size: 40px;
-    font-weight: normal;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-align: center;
+.sidebar.active ul {
+  margin: 10px 0 10px 0;
 }
 
-.count-text {
-    font-size: 13px;
-    font-weight: normal;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-align: center;
+.sidebar.active a {
+  color: dimgrey;
+  font-weight: bold;
+  font-size: 1rem;
+
 }
 
-.fa-2x {
-    margin: 0 auto;
-    float: none;
-    display: table;
-    color: #4ad1e5;
+.sidebar.active a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.sidebar-icon {
+  color: dimgrey;
+  width: 14%;
+  margin: 0px 12px 0 12px;
+}
+
+.sidebar-toggle {
+  background-color: white;
+  border: none;
+  color: dimgrey;
+  position: absolute:
+  top: 0;
+  right: 0;
+}
+
+.sidebar-toggle:hover {
+  cursor: pointer;
+}
+
+.sidebar-toggle:focus {
+  outline: none;
+}
+
+.my-detail {
+  border-top: 0.5px solid #DCDCDC;
+  text-align: center;
+  padding: 15px 0 50px 0;
 }
 
 table, td, th {
@@ -182,7 +113,3 @@ table {
   border-collapse: collapse;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
