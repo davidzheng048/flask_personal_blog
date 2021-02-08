@@ -47,7 +47,7 @@ a:hover  {
   right: 6%;
   position: fixed;
   width: 300px;
-  height: 515px;
+  height: 420px;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   text-align: center;
@@ -68,7 +68,7 @@ a:hover  {
 }
 
 .sidebar.active ul {
-  margin: 10px 0 10px 0;
+  margin: 10px 0 30px 0;
 }
 
 .sidebar.active a {
