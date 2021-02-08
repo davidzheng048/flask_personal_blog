@@ -113,3 +113,17 @@ table {
   border-collapse: collapse;
 }
 
+/* category page */
+.category-list {
+  margin-top: 50px;
+  width: 65vh;
+}
+
+.category-list li a {
+  color: dimgrey;
+}
+
+.category-list li a:hover {
+  color: black;
+  text-decoration: none;
+}

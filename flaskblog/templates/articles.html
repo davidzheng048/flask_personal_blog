@@ -1,7 +1,7 @@
 {% macro display_articles(posts, category, categories_sorted_by_id, current_user) %}
     {% for post in posts.items %}
         <article class="card">
-          <div class="media-body">
+          <div>
             <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
               <small class="text-muted">
                 发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;

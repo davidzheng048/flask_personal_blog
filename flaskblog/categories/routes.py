@@ -57,3 +57,9 @@ def delete_category(category_id):
     db.session.commit()
     flash('Category Deleted', 'success')
     return redirect(url_for('main.home'))
+
+
+@categories.route("/categories/")
+def category_list():
+    categories = Category.query.order_by(Category.sequence.asc())
+    return render_template('categories/category_list.html', title='Categories', categories=categories)
