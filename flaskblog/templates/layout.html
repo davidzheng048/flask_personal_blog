@@ -24,7 +24,7 @@
 <body>
 
     <header class="site-header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-color-gainsboro">
             <a class="navbar-brand" href="/">David Zheng's Blog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                     {% endif %}
                     <form class="form-inline my-2 my-lg-0" action="{{ url_for('main.search') }}">
                       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索笔记</button>
+                      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search Blog</button>
                     </form>
                 </div>
 
@@ -75,7 +75,7 @@
     </div>
     <div class="sidebar active">
         <button class="sidebar-toggle"><i class="fa fa-bars"></i></button>
-        <h3 >最近的笔记</h3>
+        <h3 >Recent Blogs</h3>
         <ul class="list-group">
             {% for post in recent_posts %}
                 <li class="list-group-item"><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a><br>
@@ -87,7 +87,7 @@
         <div>
             <i class="fa fa-desktop fa-2x sidebar-icon"></i>
                 <h2>{{ access_count }}</h2>
-            <p class="count-text ">来访人数</p>
+            <p class="count-text ">Visitors</p>
         </div>
 
         <div class="my-detail">

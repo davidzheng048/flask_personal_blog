@@ -1,5 +1,19 @@
 body {
   height: 100vh;
+  background-color: #F8F8FF;
+}
+
+.nav-color-gainsboro {
+    background-color: #DCDCDC;
+}
+
+a {
+  color: #6c757d;
+}
+
+a:hover  {
+  color: #202020;
+  text-decoration: none;
 }
 
 .content {
@@ -9,11 +23,6 @@ body {
   justify-content: center;
   margin: 50px 25% 0 25%;
   max-width: 60%;
-}
-
-.card {
-  padding: 30px;
-  margin: 40px 0 40px 0;
 }
 
 /* sidebar starts here */
@@ -120,17 +129,8 @@ table {
   border-top: none;
 }
 
-.category-list li a {
-  color: rgb(115, 115, 115);
-}
-
 .category-list li small {
   color: dimgrey;
-}
-
-.category-list li a:hover {
-  color: black;
-  text-decoration: none;
 }
 
 .category-post-click{
@@ -138,3 +138,48 @@ table {
   right: 30px;
 }
 
+/* post cards */
+
+.card {
+  padding: 30px;
+  margin: 40px 0 40px 0;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  transition: box-shadow 0.5s ease;
+}
+
+.article-title {
+  font-size: 2rem;
+  color: #585858;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.article-title:hover {
+  color: #202020;
+  text-decoration: none;
+}
+
+.card:hover {
+   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+}
+
+code {
+  font-family: Consolas,"courier new";
+  color: #F0FFFF;
+  background-color: #333333;
+  padding: 2px;
+  border: 3px;
+  font-size: 105%;
+  display: table;
+}
+
+pre code{
+    font-family: Consolas,"courier new";
+    color: #F0FFFF;
+    background-color: #333333;
+    padding: 2px;
+    border: 3px;
+    font-size: 105%;
+    display: block;
+}
