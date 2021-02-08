@@ -113,8 +113,9 @@
         <h3 >最近的笔记</h3>
         <ul class="list-group">
             {% for post in recent_posts %}
-                <li class="list-group-item">{{ post.date_posted.strftime('%d-%m-%Y') }}<br>
-                <a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a>
+                <li class="list-group-item"><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a><br>
+                    {{ post.date_posted.strftime('%d-%m-%Y') }}
+                </li>
             {% endfor %}
         </ul>
 
