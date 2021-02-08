@@ -1,17 +1,17 @@
 {% macro display_articles(posts, category, categories_sorted_by_id, current_user) %}
     {% for post in posts.items %}
-        <article class="card">
-          <div class="media-body">
-            <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-              <small class="text-muted">
-                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
-                分类于： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
-                点击数： {{ post.click_count }}
-              </small><br><br>
+    <article class="card">
+        <div>
+            <a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a><br>
+            <small class="text-muted">
+                Post at：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
+                Category： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
+                Clicks： {{ post.click_count }}
+            </small>
             <p class="article-content">{{ post.content|truncate|markdown }}
                 <a href="{{ url_for('posts.post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Read More</a>
             </p>
-          </div>
-        </article>
+        </div>
+    </article>
     {% endfor %}
 {% endmacro %}
