@@ -1,25 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-    <article class="media content-section">
-      <div class="media-body let-text-stay-inside-div">
-        <h2 class="article-title font-weight-bold">{{ post.title }}</h2>
-        <small class="text-muted">
-                发布于：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
-                分类于： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
+    <article class="content-section">
+            <h1 class="article-title font-weight-bold">{{ post.title }}</h1>
+            <small class="text-muted">
+                Post at：{{ post.date_posted.strftime('%d-%m-%Y') }} &nbsp;&nbsp;&nbsp;
+                Category： <a href="{{ url_for('categories.category', category_id=post.category_id) }}">{{ categories_sorted_by_id[post.category_id - 1] }}</a>&nbsp;&nbsp;&nbsp;
                 {% if current_user.is_authenticated %}
-                  点击数： {{ post.click_count }}
+                Clicks： {{ post.click_count }}
                 {% endif %}
-              </small><br><br>
+            </small><br><br>
         {% if post.author == current_user %}
-                <div>
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
-                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                </div>
-            {% endif %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            </div>
+        {% endif %}
         <p class="article-content">{{ post.content|markdown }}</p>
-      </div>
     </article>
-    <br>
+
+<!--    disqus-->
     <div id="disqus_thread"></div>
     <script>
     /**
@@ -39,6 +38,7 @@
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
   <!-- Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
