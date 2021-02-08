@@ -29,7 +29,7 @@ a:hover  {
 
 .sidebar {
   top: 10%;
-  right: 6%;
+  right: 1.5%;
   position: fixed;
   overflow: hidden;
   height: 28px;
@@ -44,10 +44,10 @@ a:hover  {
 
 .sidebar.active {
   top: 10%;
-  right: 6%;
+  right: 1.5%;
   position: fixed;
-  width: 300px;
-  height: 420px;
+  width: 280px;
+  height: 450px;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   text-align: center;
@@ -125,7 +125,8 @@ table {
 /* category page */
 .category-list {
   margin: 50px 0 50px 0;
-  width: 65vh;
+  width: 80vh;
+  min-width: 70vh;
   border-top: none;
 }
 
