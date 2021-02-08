@@ -20,16 +20,33 @@ body {
   top: 10%;
   right: 6%;
   position: fixed;
+  overflow: hidden;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #D3D3D3;
+  border-radius: 6px;
+  text-align: center;
+  background-color: white;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.sidebar.active {
+  top: 10%;
+  right: 6%;
+  position: fixed;
   width: 300px;
   height: 500px;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   text-align: center;
   background-color: white;
+  transition: all 0.3s;
+  z-index: 1;
 }
 
 .sidebar h3{
-  padding: 7px 0 7px 0;
+  padding: 12px 0 7px 0;
 }
 
 .sidebar ul li {
@@ -47,6 +64,23 @@ body {
   color: dimgrey;
   width: 18%;
   margin: 0px 12px 0 12px;
+}
+
+.sidebar-toggle {
+  background-color: white;
+  border: none;
+  color: dimgrey;
+  position: absolute:
+  top: 0;
+  right: 0;
+}
+
+.sidebar-toggle:hover {
+  cursor: pointer;
+}
+
+.sidebar-toggle:focus {
+  outline: none;
 }
 
 .my-detail {
